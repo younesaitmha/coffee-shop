@@ -10,8 +10,7 @@ ALGORITHMS = ['RS256']
 API_AUDIENCE = 'http://127.0.0.1:5000/'
 
 
-
-## AuthError Exception
+# AuthError Exception
 class AuthError(Exception):
     '''
         AuthError Exception
@@ -23,9 +22,9 @@ class AuthError(Exception):
         self.status_code = status_code
 
 
-## Auth Header
+# Auth Header
 
-#TODO
+# TODO
 
 def get_token_auth_header():
     '''
@@ -70,6 +69,7 @@ def get_token_auth_header():
     token = parts[1]
     return token
 
+
 '''
 #TODO implement check_permissions(permission, payload) method
     @INPUTS
@@ -81,6 +81,8 @@ def get_token_auth_header():
     it should raise an AuthError if the requested permission string is not in the payload permissions array
     return true otherwise
 '''
+
+
 def check_permissions(permission, payload):
     """
 
@@ -116,6 +118,8 @@ def check_permissions(permission, payload):
 
     !!NOTE urlopen has a common certificate error described here: https://stackoverflow.com/questions/50236117/scraping-ssl-certificate-verify-failed-error-for-http-en-wikipedia-org
 '''
+
+
 def verify_decode_jwt(token):
     """
     it should be an Auth0 token with key id (kid)

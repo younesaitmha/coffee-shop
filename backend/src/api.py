@@ -70,13 +70,13 @@ def create_drink(token):
     title = body.get('title', None)
     recipe = body.get('recipe', None)
     try:
-        drink = Drink(title = title, recipe = json.dumps(recipe))
+        drink = Drink(title=title, recipe=json.dumps(recipe))
         drink.insert()
         return jsonify({
             "success": True,
             "drink": [drink.long()]
         })
-    except:
+    except BaseException:
         abort(422)
 
 
@@ -108,7 +108,7 @@ def patch_drink(token, drink_id):
         drink.update()
         return jsonify({"success": True,
                         "drinks": [drink.long()]})
-    except:
+    except BaseException:
         abort(422)
 
 
@@ -168,6 +168,7 @@ def server_error(error):
         "error": 500,
         "message": "Server error"
     }), 500
+
 
 '''
 #TODO implement error handler for AuthError
