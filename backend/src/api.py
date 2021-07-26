@@ -10,7 +10,7 @@ setup_db(app)
 CORS(app)
 
 
-# db_drop_and_create_all()
+db_drop_and_create_all()
 
 # ROUTES
 
@@ -80,7 +80,7 @@ def create_drink(token):
         abort(422)
 
 
-@app.route('/drinks/<int:id>', methods=['PATCH'])
+@app.route('/drinks/<int:drink_id>', methods=['PATCH'])
 @requires_auth('patch:drinks')
 def patch_drink(token, drink_id):
     '''
